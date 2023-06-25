@@ -7,13 +7,14 @@ import classes from './EventItem.module.css'
 function EventItem(props) {
   const { title, image, date, location, id } = props;
 
-  const humanReadableDate = new Date(date).toLocaleDateString("zh-TW", {
+  const humanReadableDate = new Date(date).toLocaleDateString("en-US", {
     day: "numeric",
     month: "long",
     year: "numeric",
   });
-  const formattedAddress = location.replace(",", "\n");
-  const exploreLink = `/events/${id}`
+  const formattedAddress = location.replace(", ", "\n");
+  const exploreLink = `/events/${id}`;
+
   return (
     <li className={classes.item}>
       <img src={"/" + image} alt={title} />
@@ -32,7 +33,9 @@ function EventItem(props) {
         <div className={classes.actions}>
           <Button link={exploreLink}>
             <span>Explore Event</span>
-            <span className={classes.icon}><ArrowRightIcon /></span>
+            <span className={classes.icon}>
+              <ArrowRightIcon />
+            </span>
           </Button>
         </div>
       </div>
