@@ -1,13 +1,13 @@
 import { useRouter } from "next/router";
 
-import { getFilteredEvents } from "../../dummy-data";
+import { getFilteredEvents } from "../../components/helpers/api-util";
 import EventList from "../../components/events/EventList";
 import Button from "../../components/ui/Button";
 import ResultsTitle from "../../components/events/ResultsTitle";
 import ErrorAlert from "../../components/ui/ErrorAlert"
 
 
-function FilteredEventsPage() {
+function FilteredEventsPage(props) {
   const router = useRouter();
 
   const filterData = router.query.slug;
